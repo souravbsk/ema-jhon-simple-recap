@@ -1,0 +1,52 @@
+.header {
+    background-color: #1C2B35;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 0 100px;
+}
+
+.nav-item {
+    display: flex;
+    gap: 5px;
+    flex-direction: row;
+}
+
+.nav-item li {
+    list-style: none;
+}
+
+.nav-item li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.005em;
+    transition: all 0.5s ease;
+    padding: 10px 15px;
+
+}
+
+.nav-item li a:hover {
+    color: orange;
+}
+.nav-brand-logo{
+    width: 140px;
+    height: 40px;
+    max-width: 100%;
+}
+
+
+/* tablet responsive  */
+@media only screen and (max-width:576px){
+    .header{
+        flex-direction: column;
+    }
+    .nav-item{
+        flex-direction: column;
+    }
+}

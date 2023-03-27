@@ -1,0 +1,32 @@
+.shopping-container {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+}
+
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+    justify-items: center;
+    padding: 120px 80px 80px 100px;
+
+}
+
+.cart-container {
+    background: rgba(255, 153, 0, 0.3);
+    padding: 30px 16px;
+}
+
+
+/* mobile responsive  */
+@media only screen and (max-width:576px) {
+    .shopping-container {
+        grid-template-columns: 1fr;
+    }
+
+    .product-container {
+        grid-template-columns: repeat(1, 1fr);
+        padding: 50px 20px;
+    }
+
+}
