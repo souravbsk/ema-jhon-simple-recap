@@ -64,6 +64,10 @@
     position: absolute;
     bottom: 0;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     transition: all 0.5s;
 }
 .add-to-cart-btn:hover{
