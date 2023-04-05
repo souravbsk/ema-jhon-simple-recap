@@ -3,8 +3,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 80px;
-    padding: 0 100px;
+    padding: 20px 100px;
+
+
 }
 
 .nav-item {
@@ -34,19 +35,68 @@
 .nav-item li a:hover {
     color: orange;
 }
-.nav-brand-logo{
+
+.nav-brand-logo {
     width: 140px;
     height: 40px;
     max-width: 100%;
 }
 
+.nav-item .active {
+    color: orange;
+}
 
-/* tablet responsive  */
-@media only screen and (max-width:576px){
-    .header{
+
+.nav-bar {
+    background-color: white;
+    border: 0;
+    font-size: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    display: none;
+}
+
+.nav-brand {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* mobile responsive  */
+@media only screen and (max-width:576px) {
+    .header {
         flex-direction: column;
+        padding: 20px 10px;
+        align-items: start;
+        position: relative;
     }
-    .nav-item{
+
+    .nav-item {
         flex-direction: column;
+        background-color: #1C2B35;
+        position: absolute;
+        top: 85px;
+        z-index: 5;
+        left: -500px;
+        gap: 15px;
+        padding: 15px 0;
+        height: 100vh;
+        transition: all 0.5s ease-in-out;
+    }
+    .navActive{
+        left: 0;
+    }
+    .nav-brand {
+        width: 100%;
+    }
+
+    .nav-bar {
+        display: block;
+
     }
 }

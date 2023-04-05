@@ -4,7 +4,10 @@
     height: 510px;
     width: 300px;
     max-width: 100%;
-    position: relative;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    
 }
 
 .product-img {
@@ -78,4 +81,15 @@
 /* mobile responsive  */
 @media only screen and (max-width:576px){
     
+}
+
+@media only screen and (min-width:577px) and (max-width:992px) {
+    .product{
+        max-width: 250px;
+    }
+    .product-img{
+        max-width: 100%;
+        height: auto;
+        margin: 0;
+    }
 }
