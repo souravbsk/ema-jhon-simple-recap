@@ -12,6 +12,42 @@ const Shop = () => {
 
   const [Cart, setCart] = useState([]);
 
+  const [page,setPage] = useState(3);
+
+ const  handleInfiniteScroll = async () => {
+  // console.log(window.innerHeight); 646
+  // 1290
+  // console.log(document.documentElement.scrollTop); 644.799
+  const totalHeight = window.innerHeight + document.documentElement.scrollTop;
+  try {
+    if(parseInt(totalHeight) < (document.documentElement.scrollHeight)){
+    }
+    else{
+      setPage(prev => prev + 3);
+    }
+    
+  } catch (error) {
+    console.log(error.message);
+  }
+ }
+ console.log(page);
+
+useEffect(() => {
+  window.addEventListener('scroll',handleInfiniteScroll)
+},[])
+
+
+
+
+
+
+
+
+
+
+
+
+
   // quantity update
   useEffect(() => {
     // get product item from localStorage
@@ -57,7 +93,7 @@ const handleEmptyCart = () => {
   return (
     <div className="shopping-container">
       <div className="product-container">
-        {products.map((product) => (
+        {products.slice(0,page).map((product) => (
           <Product
             key={product.id}
             handleAddToCart={handleAddToCart}

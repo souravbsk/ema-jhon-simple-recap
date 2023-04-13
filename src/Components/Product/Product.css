@@ -4,8 +4,7 @@
     height: 510px;
     width: 300px;
     max-width: 100%;
-    position: sticky;
-    top: 0;
+    position: relative;
     background-color: white;
     
 }
@@ -72,6 +71,7 @@
     justify-content: center;
     gap: 10px;
     transition: all 0.5s;
+    z-index: 25;
 }
 .add-to-cart-btn:hover{
     background-color: orange;

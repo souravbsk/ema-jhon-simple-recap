@@ -1,0 +1,139 @@
+.singleProduct {
+    display: flex;
+    gap: 50px;
+    margin: 50px 100px;
+    padding: 50px;
+    border: 1px solid gainsboro;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px -10px gray
+
+
+}
+.singleProductImg{
+    flex: 1;
+}
+.singleProductImg img{
+    width: 100% !important;
+    height: fit-content;
+    object-fit: fill;
+    object-position: center center;
+    border-radius: 10px;
+    position: relative;
+}
+
+.js-image-zoom__zoomed-image{
+    width: 100% !important;
+}
+
+.singleProductContent{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.singleProductContent h2{
+    font-size: 30px;
+    font-weight: 400;
+}
+.singleProductContent p{
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 400;
+}
+.singleProductContent .ratings{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.singleProductContent .ratings span{
+    color: orange;
+}
+.dynamic-star-container{
+    font-size: 5px;
+}
+.singeProductBuy{
+    margin-top: auto;
+    padding-bottom: 125px;
+}
+
+.singeProductBuy h6{
+font-size: 25px;
+font-weight: 700;
+margin-bottom: 25px;
+
+}
+.singleProductBuyBtn{
+    padding: 15px 45px;
+    background-color: #FFE0B2;
+    border: 0;
+    border-radius: 5px;
+    color: black;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.singleProductBuyBtn:hover{
+    background-color: orange;
+}
+
+
+.singleProductQuantityAndBtb{
+    display: flex; 
+    align-items: center;
+    gap: 15px;
+}
+
+.singleProductQuantityInput input{
+    font-size: 20px;
+    font-weight: 500;
+    width: 70px;
+    height: 40px;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding-left: 15px;
+
+}
+
+
+
+
+
+@media only screen and (min-width:577px) and (max-width:992px) {
+
+    .singleProduct{
+        flex-direction: column;
+    }
+}
+/* mobile responsive  */
+@media only screen and (max-width:576px){
+    .singleProduct{
+        margin: 50px 15px;
+        flex-direction: column;
+        padding: 10px;
+        gap: 20px;
+
+    }
+    .singleProductContent h2{
+        font-size: 20px;
+    }
+    .singleProductContent p{
+        font-size: 14px;
+    }
+    .singeProductBuy h6{
+        font-size: 20px;
+        margin-top: 15px;
+    }
+    .singleProductQuantityAndBtb{
+        flex-direction: column;
+        align-items: start;
+        gap: 15px;
+    }
+    .singeProductBuy{
+        margin-bottom: 25px;
+    }
+}

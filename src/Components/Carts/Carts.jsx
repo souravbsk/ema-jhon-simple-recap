@@ -15,7 +15,7 @@ const Carts = ({Cart,children}) => {
 
     
 const totalTax = totalPrice*7/100;
-const grandTotao = totalPrice + totalShipping + totalTax;
+const grandTotal = totalPrice + totalShipping + totalTax;
 
   return (
     <div>
@@ -25,7 +25,7 @@ const grandTotao = totalPrice + totalShipping + totalTax;
         <p>Total Price: ${totalPrice}</p>
         <p>Total Shipping Charge: ${totalShipping}</p>
         <p>Tax: ${totalTax.toFixed(2)}</p>
-        <h2 className="grand-total">Grand Total: ${grandTotao.toFixed(2)}</h2>
+        <h2 className="grand-total">Grand Total: ${grandTotal.toFixed(2)}</h2>
       </div>
       {
         children

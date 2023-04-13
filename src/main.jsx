@@ -8,6 +8,8 @@ import Shop from './Components/Shop/Shop'
 import OrderReview from './Components/OrderReview/OrderReview'
 import orderDataFromCart from './loader/oderDataFromCart'
 import Checkout from './Components/Checkout/Checkout'
+import ProductDetails from './Components/ProductDetails/ProductDetails'
+import ProductDetailsDataLoad from './utilities/ProductDetailsDataLoad'
 
 
 const router = createBrowserRouter([
@@ -18,6 +20,11 @@ const router = createBrowserRouter([
       {
         path:"/",
         element:<Shop></Shop>,
+      },
+      {
+        path:"/product/:productId",
+        element:<ProductDetails></ProductDetails>,
+        loader:ProductDetailsDataLoad
       },
       {
         path:"/review",
@@ -34,7 +41,7 @@ const router = createBrowserRouter([
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <RouterProvider router={router}></RouterProvider>
-  </React.StrictMode>,
+  // </React.StrictMode>,
 )

@@ -1,12 +1,18 @@
 import React from "react";
 import "./Product.css";
 import { FaCartPlus } from "react-icons/fa";
+import { useLocation, useNavigate } from "react-router-dom";
 const Product = (props) => {
   const { product, handleAddToCart } = props;
-  const { img, name, price, seller, ratings } = product;
+  const {id, img, name, price, seller, ratings } = product;
+  const navigate =useNavigate();
+  const handleProductView = (id) => {
+    navigate(`/product/${id}`)
+  }
+
   return (
     <div className="product">
-      <img className="product-img" src={img} alt="" />
+      <img onClick={() => handleProductView(id)}  className="product-img" src={img} alt="" />
       <div className="product-content">
         <div>
           <h6 className="product-title">{name}</h6>
