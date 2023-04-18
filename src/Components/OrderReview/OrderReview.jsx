@@ -23,6 +23,7 @@ const OrderReview = () => {
   return (
     <div className="order-container">
       <div className="order-item-container">
+        {cart.length === 0 && <h2>No Product Added !!!. Please add some product </h2>}
         {cart.map((product) => (
           <OrderItem
             product={product}

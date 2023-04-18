@@ -1,7 +1,7 @@
 .order-product {
     border: 1px solid #95A0A7;
     border-radius: 8px;
-    width: 571px;
+    max-width: 571px;
     height: 107px;
     margin: 0 auto;
     margin-bottom: 20px;
@@ -64,4 +64,24 @@
 .remove-icon {
     font-size: 27px;
     color: #EB5757;
+}
+/* mobile responsive  */
+@media only screen and (max-width:576px) {
+   
+    .orderProduct-content{
+        padding:0 5px;
+    }
+    .orderProduct-title{
+        font-size: 12px;
+        line-height: 20px;
+    }
+    .orderProduct-content p{
+        font-size: 10px;
+        margin-top: 3px;
+    }
+    .order-remove-btn{
+        width: 40px;
+        height: 40px;
+        margin-right: 0;
+    }
 }
