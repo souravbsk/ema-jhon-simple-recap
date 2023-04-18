@@ -6,6 +6,7 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -18,40 +19,43 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  const [loader,setLoader] = useState(true);
-
-
+  const [loader, setLoader] = useState(true);
 
   const googleProvider = new GoogleAuthProvider();
 
   //user create
   const createUser = (email, password) => {
-    setLoader(true)
+    setLoader(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   // login user
   const login = (email, password) => {
-    setLoader(true)
+    setLoader(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   // login with google
   const googleSignIn = () => {
-    setLoader(true)
+    setLoader(true);
     return signInWithPopup(auth, googleProvider);
   };
 
-  //sign out user 
+  //sign out user
   const logOut = () => {
     return signOut(auth);
-  }
+  };
+
+  //resetPassword
+  const forgetPassword = (email) => {
+    return sendPasswordResetEmail(auth, email);
+  };
 
   //getUser from firebase
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      setLoader(false)
+      setLoader(false);
     });
     return () => unSubscribe();
   }, []);
@@ -62,7 +66,8 @@ const AuthProvider = ({ children }) => {
     googleSignIn,
     user,
     logOut,
-    loader
+    loader,
+    forgetPassword
   };
   return (
     <authProvider.Provider value={authInfo}>{children}</authProvider.Provider>

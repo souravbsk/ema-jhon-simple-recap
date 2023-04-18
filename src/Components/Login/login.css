@@ -21,6 +21,7 @@
 
 .form-control {
     margin-bottom: 20px;
+    position: relative;
 }
 
 .form-control label {
@@ -43,6 +44,17 @@
     padding: 0 10px;
     font-size: 21px;
     color: #2A414F;
+}
+.pass-hide-toggle{
+    position: absolute;
+    top: 55%;
+    right: 15px;
+    font-size: 18px;
+    padding: 3px 3px;
+    display: flex;
+    background-color: transparent;
+    border: 0;
+
 }
 
 .form-button {
@@ -87,6 +99,11 @@
 .user-toggle a {
     color: #FF9900;
     text-decoration: none;
+}
+.forgot-pass{
+    text-align: right;
+    cursor: pointer;
+    color: #FF9900;
 }
 
 .or-line {

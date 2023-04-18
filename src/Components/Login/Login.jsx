@@ -2,13 +2,18 @@ import React from "react";
 import "./login.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import {FaEyeSlash,FaEye } from "react-icons/fa";
 import { useContext } from "react";
 import { authProvider } from "../../AuthProvider/AuthProvider";
 import { useState } from "react";
+import { useRef } from "react";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
-  const { login,googleSignIn,loader } = useContext(authProvider);
+  const { login,googleSignIn,loader,forgetPassword } = useContext(authProvider);
+  const useEmail = useRef(null);
   const [error,setError] = useState("")
+  const [showPass,setShowPass] = useState(true)
   const location = useLocation();
   const navigate = useNavigate();
   const from = location?.state?.from?.pathname || "/";
@@ -22,10 +27,13 @@ const Login = () => {
     .then(result => {
         const currentUser = result.user;
         console.log(currentUser);
+        toast.success("welcome to, ema-jhon")
         navigate(from,{replace:true})
     })
     .catch(err => {
-        setError(err.message)
+      toast.error(err.message, {
+        position: "bottom-center"
+      })
     })
   };
 
@@ -35,11 +43,43 @@ const Login = () => {
     .then(res => {
         const currentUser = res.user;
         console.log(currentUser);
+        toast.success("welcome to, ema-jhon")
         navigate(from,{replace:true})
     })
     .catch(err => {
-        setError(err.message)
+      toast.error(err.message, {
+        position: "bottom-center"
+      })
+        // setError(err.message)
     })
+  }
+
+// reset password 
+const handleForgetPass = () => {
+const email = useEmail.current.value;
+if(!email){
+  toast("please enter your mail")
+  return
+}else{
+
+  forgetPassword(email)
+  .then(() => {
+    toast.success("Please check your mail box")
+  })
+  .catch(err => {
+    toast.error(err.message, {
+      position: "bottom-center"
+    })
+  })
+}
+}
+
+
+// show pass toggle 
+  const handleShowPass = (e) =>{
+    if(e.type === 'click'){
+      setShowPass(!showPass)
+    }
   }
   return (
     <div className="form-container">
@@ -47,14 +87,24 @@ const Login = () => {
       <form onSubmit={handleSignIn}>
         <div className="form-control">
           <label htmlFor="">Email</label>
-          <input required type="email" name="email" id="" />
+          <input ref={useEmail} required type="email" name="email" id="" />
         </div>
         <div className="form-control">
           <label htmlFor="">Password</label>
-          <input required type="password" name="password" id="" />
+          <input required type={showPass ? `password` : "text"} name="password" id="" />
+          <button type="button" onClick={handleShowPass} className="pass-hide-toggle">
+          {
+            showPass 
+            ? 
+            <FaEyeSlash></FaEyeSlash>
+            :
+            <FaEye></FaEye>
+          }
+          </button>
         </div>
+        <p className="forgot-pass"><span onClick={handleForgetPass}>Forgot Password?</span></p>
         <div className="form-button">
-          <button className="submit-Btn">Login</button>
+          <button type="submit" className="submit-Btn">Login</button>
         </div>
       </form>
       <p className="user-toggle">
@@ -62,10 +112,6 @@ const Login = () => {
           New to Ema-john? <Link to="/signup">Create New Account</Link>
         </small>
       </p>
-      <p className="text-error">
-        {error}
-        </p>
-
       <div className="or-line">
         <div></div>
         <p>or</p>
