@@ -12,7 +12,7 @@ const ProductDetails = () => {
   const [ratingStar, setRatingStar] = useState([]);
   const [quantityValue,setQuantityValue] = useState(1);
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("https://ema-jhon-simple-server-recap.vercel.app/products")
       .then((res) => res.json())
       .then((datas) => {
         const targetProduct = datas.find((data) => data._id === productID);

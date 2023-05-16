@@ -3,7 +3,7 @@ import { getShoppingCart } from "../utilities/fakedb";
 const orderDataFromCart = async () => {
     const storeCart =  getShoppingCart();
     const ids = Object.keys(storeCart);
-const productData = await fetch('http://localhost:5000/productById',{
+const productData = await fetch('https://ema-jhon-simple-server-recap.vercel.app/productById',{
     method:"POST",
     headers:{
         'content-type':'application/json'

@@ -16,7 +16,7 @@ const Shop = () => {
 
   const [Cart, setCart] = useState([]);
   // useEffect(()=> {
-  //     fetch('http://localhost:5000/products')
+  //     fetch('https://ema-jhon-simple-server-recap.vercel.app/products')
   //     .then(res => res.json())
   //     .then(data => setProducts(data))
   // },[])
@@ -32,7 +32,7 @@ const Shop = () => {
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(
-        `http://localhost:5000/products?page=${currentPage}&limit=${itemsPerPage}`
+        `https://ema-jhon-simple-server-recap.vercel.app/products?page=${currentPage}&limit=${itemsPerPage}`
       );
       const data = await res.json();
       setProducts(data);
@@ -79,7 +79,7 @@ const Shop = () => {
     // get product item from localStorage
     const storedCart = getShoppingCart();
     const ids = Object.keys(storedCart);
-    fetch('http://localhost:5000/productById',{
+    fetch('https://ema-jhon-simple-server-recap.vercel.app/productById',{
       method:"POST",
       headers:{
           'content-type':'application/json'
