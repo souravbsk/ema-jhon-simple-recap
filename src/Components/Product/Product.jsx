@@ -4,7 +4,7 @@ import { FaCartPlus } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
 const Product = (props) => {
   const { product, handleAddToCart } = props;
-  const {id, img, name, price, seller, ratings } = product;
+  const {_id, img, name, price, seller, ratings } = product;
   const navigate =useNavigate();
   const handleProductView = (id) => {
     navigate(`/product/${id}`)
@@ -12,7 +12,7 @@ const Product = (props) => {
 
   return (
     <div className="product">
-      <img onClick={() => handleProductView(id)}  className="product-img" src={img} alt="" />
+      <img onClick={() => handleProductView(_id)}  className="product-img" src={img} alt="" />
       <div className="product-content">
         <div>
           <h6 className="product-title">{name}</h6>

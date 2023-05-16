@@ -4,7 +4,7 @@ import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { authProvider } from "../../AuthProvider/AuthProvider";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaFacebook } from "react-icons/fa";
 import { toast } from "react-hot-toast";
 
 const Register = () => {
@@ -31,7 +31,6 @@ const Register = () => {
       .then((result) => {
         const currentUser = result.user;
         toast.success("welcome to, ema-jhon")
-        console.log(currentUser);
       })
       .catch((err) => {
         toast.error(err.message, {
@@ -46,7 +45,6 @@ const Register = () => {
       .then((res) => {
         const currentUser = res.user;
         toast.success("welcome to, ema-jhon")
-        console.log(currentUser);
       })
       .catch((err) => {
         toast.error(err.message, {

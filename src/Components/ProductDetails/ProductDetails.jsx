@@ -12,10 +12,10 @@ const ProductDetails = () => {
   const [ratingStar, setRatingStar] = useState([]);
   const [quantityValue,setQuantityValue] = useState(1);
   useEffect(() => {
-    fetch("/products.json")
+    fetch("http://localhost:5000/products")
       .then((res) => res.json())
       .then((datas) => {
-        const targetProduct = datas.find((data) => data.id === productID);
+        const targetProduct = datas.find((data) => data._id === productID);
         setProduct(targetProduct);
       });
   }, [productID]);
@@ -26,14 +26,13 @@ const ProductDetails = () => {
       return
     }
     for(let i = 0; i<parseFloat(quantityValue); i++){
-      console.log(quantityValue);
       addToDb(id);
     }
     setCart(true);
   };
 
   const {
-    id,
+    _id,
     img,
     name,
     price,
@@ -94,7 +93,8 @@ const ProductDetails = () => {
               <input onChange={(e) => setQuantityValue(e.target.value)} type="number" defaultValue="1" min="1" max="100" name="" id="" />
             </div>
             <button
-              onClick={() => handleSingleProductBuy(id)}
+            disabled={!Cart ? false : true}
+              onClick={() => handleSingleProductBuy(_id)}
               className="singleProductBuyBtn"
             >
               Add TO Cart

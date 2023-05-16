@@ -2,6 +2,7 @@ import React from "react";
 import { createContext } from "react";
 import app from "../firebase/firebase.init";
 import {
+  FacebookAuthProvider,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
@@ -22,6 +23,7 @@ const AuthProvider = ({ children }) => {
   const [loader, setLoader] = useState(true);
 
   const googleProvider = new GoogleAuthProvider();
+  const faceBookProvider = new FacebookAuthProvider();
 
   //user create
   const createUser = (email, password) => {
@@ -40,6 +42,11 @@ const AuthProvider = ({ children }) => {
     setLoader(true);
     return signInWithPopup(auth, googleProvider);
   };
+
+  //login with facebook
+  const facebookSignIn = () => {
+    return signInWithPopup(auth,faceBookProvider);
+  }
 
   //sign out user
   const logOut = () => {
@@ -67,7 +74,8 @@ const AuthProvider = ({ children }) => {
     user,
     logOut,
     loader,
-    forgetPassword
+    forgetPassword,
+    facebookSignIn
   };
   return (
     <authProvider.Provider value={authInfo}>{children}</authProvider.Provider>

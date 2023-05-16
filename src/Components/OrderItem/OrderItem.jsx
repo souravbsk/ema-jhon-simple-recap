@@ -3,7 +3,7 @@ import "./OrderItem.css";
 import { FaTrashAlt } from "react-icons/fa";
 
 const OrderItem = ({ product, handleRemoveItem }) => {
-  const { id, name, img, price, quantity } = product;
+  const { _id, name, img, price, quantity } = product;
   return (
     <div className="order-product">
       <img className="order-img" src={img} alt="" />
@@ -16,7 +16,7 @@ const OrderItem = ({ product, handleRemoveItem }) => {
           Quantity: <span>{quantity}</span>
         </p>
       </div>
-      <button onClick={() => handleRemoveItem(id)} className="order-remove-btn">
+      <button onClick={() => handleRemoveItem(_id)} className="order-remove-btn">
         <FaTrashAlt className="remove-icon"></FaTrashAlt>
       </button>
     </div>
